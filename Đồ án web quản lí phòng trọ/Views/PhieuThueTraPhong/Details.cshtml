@@ -1,0 +1,159 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThueTraPhong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/CSS/button-back.css" rel="stylesheet" />
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    #details-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f5f5f5;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    dl {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    dt {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    dd {
+        margin-bottom: 15px;
+    }
+
+    #button-details,
+    #button-edit,
+    #button-back {
+        display: inline-block;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        text-align: center;
+        text-decoration: none;
+        margin-right: 10px;
+        color: white;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    #button-details {
+        background-color: #3498db;
+    }
+
+    #button-edit {
+        background-color: #e67e22;
+    }
+
+    #button-back {
+        background-color: #95a5a6;
+    }
+
+        #button-details:hover,
+        #button-edit:hover,
+        #button-back:hover {
+            background-color: #2c3e50;
+        }
+</style>
+<div id="details-container">
+    <h2>Chi tiết phiếu thuê trả phòng</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MaPhieuTTP)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaPhieuTTP)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CCCD)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CCCD)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DiaChi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SDT)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SDT)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NgayThue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgayThue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TenKhachHang)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenKhachHang)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NgayTra)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgayTra)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MaQuanLy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaQuanLy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MaPhong)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaPhong)
+            </dd>
+
+        </dl>
+    </div>
+    <a href="~/PhieuThuTien/Create/@Model.MaPhieuTTP" id="button-details">Lập phiếu thu tiền</a>
+    <div>
+        <a href="~/PhieuThueTraPhong/Index" id="button-back">Trở về</a>
+        <a href="~/PhieuThueTraPhong/Edit/@Model.MaPhieuTTP" id="button-edit">Sửa</a>
+    </div>
+</div>

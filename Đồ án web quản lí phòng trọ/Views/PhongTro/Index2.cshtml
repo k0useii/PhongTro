@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.PhongTro>
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/CSS/admin.css" rel="stylesheet" />
+<script src="~/Scripts/scrip2.js?v=1" type="text/javascript"></script>
+<style>
+    /* CSS cho biểu mẫu tìm kiếm */
+    .form-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .form-container label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .form-container input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .form-container input[type="submit"]:hover {
+                background-color: #23527c;
+            }
+    .description-info {
+        border-radius: 14px;
+        padding: 5px;
+    }
+
+    .card-pro {
+        border: 0px solid black;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .button-create {
+        background-color: grey;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        padding: 5px 5px;
+        border-radius: 12px;
+        text-decoration:none;
+        margin-bottom:20px;
+    }
+    .button-create:hover{
+        color:red;
+    }
+    #des-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button-detail {
+        background-color: grey;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        padding: 5px 5px;
+        border-radius: 12px;
+    }
+    .button-edit {
+        background-color: #4BC637;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 12px;
+    }
+    .button-delete {
+        background-color: red;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 12px;
+        float:right;
+
+    }
+
+        .button-detail:hover {
+            color: white;
+        }
+
+    #des-trangthai {
+        padding: 5px;
+        margin-left: 10px;
+    }
+    
+</style>
+<h2 style="text-align:center;">DANH SÁCH PHÒNG TRỌ</h2>
+
+<div style="text-align: center;" class="form-container">
+    @using (Html.BeginForm("SearchOption", "PhongTro", FormMethod.Get))
+    {
+        <label for="min">Giá thuê từ:</label>
+        <input type="number" name="min" id="min" />
+        <label for="max">đến:</label>
+        <input type="number" name="max" id="max" />
+        <input type="submit" value="Tìm kiếm" />
+    }
+</div>
+<a href="~/PhongTro/Create" class="button-create" style="text-decoration:none;"> Thêm mới phòng trọ</a>
+<div class="container">
+    <div class="row">
+        @foreach (var pro in Model)
+        {
+            <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3" style="padding:20px;">             
+                <div class="card-pro" onclick="location.href='Details/@pro.MaPhong'" style="cursor:pointer">
+                    <img id="des-image" src="@Url.Content(pro.Hinh)" height="150" width="200" />
+                    <br />
+                    <div class="description-info">
+                        <p style="color:#5D5656">@Html.DisplayFor(model => pro.VatChat)</p>
+                        <p><img style="width:25px; height:25px;" src="~/images/iconarea.png" /><span>@Html.DisplayFor(model => pro.DienTich)</span><span>m2</span></p>
+                        <p>Giá thuê: <span style="font-size:14px; color:gray">@Html.DisplayFor(model => pro.GiaThue) <span>VND</span> </span> </p>
+
+                        <p>Trạng thái:<span data-status="@pro.TrangThai" id="des-trangthai" style="border-radius:10px;">@Html.DisplayFor(model => pro.TrangThai)</span></p>
+                        <br />
+                        <a href="~/PhongTro/Edit/@pro.MaPhong" class="button-edit" style="text-decoration:none"> Sửa</a>
+                        <a href="~/PhongTro/Delete/@pro.MaPhong" class="button-delete" style="text-decoration:none" > Xóa</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

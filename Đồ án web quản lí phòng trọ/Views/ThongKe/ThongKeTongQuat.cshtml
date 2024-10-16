@@ -1,0 +1,47 @@
+﻿
+<head>
+    <style>
+        .doanhthu {
+            font-size: 25px;
+            font-family: 'Times New Roman', Times, serif;
+            color: brown
+        }
+    </style>
+</head>
+@{
+    ViewBag.Title = "Biểu Đồ Thống Kê";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center;">Thống kê tổng quát</h2>
+
+<p style="font-size: 25px;font-family:'Times New Roman', Times, serif;color:brown">Tổng doanh thu: @ViewBag.TongDoanhThu VND</p>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div style="width: 600px; height: 600px;">
+    <canvas id="doanhThuChart"></canvas>
+</div>
+
+<script>
+    var ctx = document.getElementById('doanhThuChart').getContext('2d');
+    var daThanhToan = @ViewBag.DaThanhToan;
+    var chuaThanhToan = @ViewBag.ChuaThanhToan;
+
+    var doanhThuChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [
+                'Đã thanh toán ' + ((daThanhToan / (daThanhToan + chuaThanhToan)) * 100).toFixed(2) + '%',
+                'Chưa thanh toán ' + ((chuaThanhToan / (daThanhToan + chuaThanhToan)) * 100).toFixed(2) + '%'
+            ],
+            datasets: [{
+                data: [daThanhToan, chuaThanhToan],
+                backgroundColor: ['#36a2eb', '#ffcd56'],
+            }],
+        },
+        options: {
+            responsive: true,
+        }
+    });
+</script>
+
+

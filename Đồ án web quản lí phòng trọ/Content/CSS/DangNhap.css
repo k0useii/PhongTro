@@ -1,0 +1,316 @@
+﻿
+
+.Logo22 {
+    width: 100%;
+}
+
+.Group3 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 677px;
+    height: 655px;
+    position: relative;
+}
+
+.Rectangle11 {
+    width: 0px;
+    height: 41.98px;
+    left: 350px;
+    top: 380px;
+    position: absolute;
+    background: #A19F9F;
+    border-radius: 30px
+}
+
+.Rectangle110 {
+    width: 0px;
+    height: 41.98px;
+    left: 350px;
+    top: 470px;
+    position: absolute;
+    background: #A19F9F;
+    border-radius: 30px
+}
+
+.Logo22 {
+    width: 677px;
+    height: 250.28px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    border-radius: 126px;
+    border-left: 3px black solid;
+    border-top: 3px black solid;
+    border-right: 3px black solid;
+    border-bottom: 3px black solid
+}
+
+.TenDangNhap-1 {
+    width: 217px;
+    height: 34px;
+    left: 33px;
+    top: 291px;
+    position: absolute;
+    color: black;
+    font-size: 30px;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.MatKhau-1 {
+    width: 142px;
+    height: 36px;
+    left: 33px;
+    top: 380px;
+    position: absolute;
+    color: black;
+    font-size: 30px;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.MatKhau-2 {
+    width: 250px;
+    height: 36px;
+    left: 33px;
+    top: 470px;
+    position: absolute;
+    color: black;
+    font-size: 30px;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.Rectangle10 {
+    width: 0px;
+    height: 41.98px;
+    left: 350px;
+    top: 291.46px;
+    position: absolute;
+    background: #A19F9F;
+    border-radius: 10px;
+}
+
+.btn-danngnhap {
+    width: 255.42px;
+    height: 72.07px;
+    left: 62.82px;
+    top: 600px;
+    position: absolute;
+    background: #737171;
+    border-radius: 40px;
+    color: white;
+    font-size: 34px;
+    cursor: pointer;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.btn-dangky {
+    width: 255.42px;
+    height: 72.07px;
+    left: 350px;
+    top: 600px;
+    position: absolute;
+    background: #737171;
+    border-radius: 40px;
+    color: white;
+    font-size: 34px;
+    cursor: pointer;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.Group4 {
+    width: 680px;
+    height: 758px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Rectangle9 {
+    width: 677px;
+    height: 758px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #D9D9D9;
+    border-radius: 138px;
+    border-left: 3px black solid;
+    border-top: 3px black solid;
+    border-right: 3px black solid;
+    border-bottom: 3px black solid
+}
+
+.TenDangNhap {
+    width: 400px;
+    height: 48.58px;
+    left: 340.93px;
+    top: 42.49px;
+    position: absolute;
+    background: #A19F9F;
+    border-radius: 30px;
+    color: black;
+    font-size: 30px;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.MatKhau {
+    width: 338.03px;
+    height: 48.58px;
+    left: 340.93px;
+    top: 105.73px;
+    position: absolute;
+    background: #A19F9F;
+    border-radius: 30px;
+    color: black;
+    font-size: 30px;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.CMND {
+    width: 338.03px;
+    height: 48.58px;
+    left: 340.93px;
+    top: 232.35px;
+    position: absolute;
+    background: #A19F9F;
+    border-radius: 30px;
+    color: black;
+    font-size: 30px;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.HoVaTen {
+    width: 338.03px;
+    height: 48.58px;
+    left: 340.93px;
+    top: 169.11px;
+    position: absolute;
+    background: #A19F9F;
+    border-radius: 30px;
+    color: black;
+    font-size: 30px;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.DiaChi {
+    width: 338.03px;
+    height: 48.58px;
+    left: 340.93px;
+    top: 295.72px;
+    position: absolute;
+    background: #A19F9F;
+    border-radius: 30px;
+    color: black;
+    font-size: 30px;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.SDT {
+    width: 338.03px;
+    height: 48.58px;
+    left: 340.93px;
+    top: 358.97px;
+    position: absolute;
+    background: #A19F9F;
+    border-radius: 30px;
+    color: black;
+    font-size: 30px;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.username-danger {
+    width: 217px;
+    height: 30px;
+    left: 33px;
+    top: 291px;
+}
+
+.password-danger {
+    width: 217px;
+    height: 30px;
+    left: 33px;
+    top: 291px;
+}
+
+.shape-login {
+    height: 700px;
+    width: 500px;
+    border-radius: 100px;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid black;
+}
+
+table {
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input {
+    border-radius: 20px;
+    background-color: lightgray;
+}
+
+.btn-login {
+    color: #fff;
+    background-color: dimgrey;
+    border-radius: 20px;
+    height: 50px;
+    width: 120px;
+    
+}
+.btn-register {
+    color: #fff;
+    background-color: dimgrey;
+    border-radius: 20px;
+    height: 50px;
+    width: 120px;
+    
+    
+}
+  
+.alert {
+    color: #a94442;
+    background-color: #f2dede;
+    border-radius: 30px;
+    height: 10%;
+    font-size: 12px;
+    text-align: center;
+}
+
+.img-logo {
+    width: 450px;
+    height: 200px;
+    border-radius:20px;
+    border-bottom:2px solid black;
+    
+}

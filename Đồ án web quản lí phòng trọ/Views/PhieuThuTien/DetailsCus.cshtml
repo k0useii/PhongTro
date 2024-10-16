@@ -1,0 +1,72 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThuTien
+
+@{
+    ViewBag.Title = "DetailsCus";
+    Layout = "~/Views/Shared/KhachHangLayout.cshtml";
+}
+
+<h2>DetailsCus</h2>
+
+<div>
+    <h4>PhieuThuTien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienDien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienDien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienNuoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienNuoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienMang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienMang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "IndexCus")
+</p>
+

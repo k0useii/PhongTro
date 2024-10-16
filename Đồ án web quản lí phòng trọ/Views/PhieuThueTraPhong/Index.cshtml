@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThueTraPhong>
+
+@{
+    ViewBag.Title = "Quản lý phiếu thuê trả phòng";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/CSS/quanly.css?v=1" rel="stylesheet" />
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .button-quanly-phieuttp {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        margin-bottom: 20px;
+        color: white;
+        background-color: #3498db;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .button-quanly-phieuttp:hover {
+            background-color: #2980b9;
+        }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th,
+        .table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+    #button-edit,
+    #button-details,
+    #button-delete {
+        display: inline-block;
+        margin-right: 5px;
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    #button-edit {
+        background-color: #e67e22;
+    }
+
+    #button-details {
+        background-color: #3498db;
+    }
+
+    #button-delete {
+        background-color: #e74c3c;
+    }
+
+        #button-edit:hover,
+        #button-details:hover,
+        #button-delete:hover {
+            background-color: #d35400;
+        }
+</style>
+<div class="container">
+    <h2>Quản lý phiếu thuê trả phòng</h2>
+    <a href="~/PhieuThueTraPhong/Create" class="button-quanly-phieuttp">Thêm mới</a>
+
+    <table class="table">
+        <tr>
+            <th>Mã Phiếu TTP</th>
+            <th>CCCD</th>
+            <th>Địa Chỉ</th>
+            <th>SDT</th>
+            <th>Ngày Thuê</th>
+            <th>Tên Khách Hàng</th>
+            <th>Ngày Trả</th>
+            <th>Mã Quản Lý</th>
+            <th>Mã Phòng</th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaPhieuTTP)</td>
+                <td>@Html.DisplayFor(modelItem => item.CCCD)</td>
+                <td>@Html.DisplayFor(modelItem => item.DiaChi)</td>
+                <td>@Html.DisplayFor(modelItem => item.SDT)</td>
+                <td>@Html.DisplayFor(modelItem => item.NgayThue)</td>
+                <td>@Html.DisplayFor(modelItem => item.TenKhachHang)</td>
+                <td>@Html.DisplayFor(modelItem => item.NgayTra)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaQuanLy)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaPhong)</td>
+                <td>
+                    <a href="~/PhieuThueTraPhong/Edit/@item.MaPhieuTTP" id="button-edit">Sửa</a>
+                    <a href="~/PhieuThueTraPhong/Details/@item.MaPhieuTTP" id="button-details">Chi tiết</a>
+                    <a href="~/PhieuThueTraPhong/Delete/@item.MaPhieuTTP" id="button-delete">Xóa</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThuTien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    /* Basic styling for the table */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* Styling for action links */
+    .action-links a {
+        margin-right: 10px;
+    }
+</style>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>Tổng Tiền</th>
+        <th>Tháng</th>
+        <th>Tiền Điện</th>
+        <th>Tiền Nước</th>
+        <th>Tiền Mạng</th>
+        <th>Trạng Thái</th>
+        <th>Tên Khách Hàng</th>
+        <th>CCCD</th>
+        <th>Tên Quản Lý</th>
+        <th>Hành Động</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.TongTien)</td>
+            <td>@Html.DisplayFor(modelItem => item.Thang)</td>
+            <td>@Html.DisplayFor(modelItem => item.TienDien)</td>
+            <td>@Html.DisplayFor(modelItem => item.TienNuoc)</td>
+            <td>@Html.DisplayFor(modelItem => item.TienMang)</td>
+            <td>@Html.DisplayFor(modelItem => item.TrangThai)</td>
+            <td>@Html.DisplayFor(modelItem => item.KhachHang.TenKhachHang)</td>
+            <td>@Html.DisplayFor(modelItem => item.PhieuThueTraPhong.CCCD)</td>
+            <td>@Html.DisplayFor(modelItem => item.QuanLy.TenQuanLy)</td>
+            <td class="action-links">
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaPhieuThuTien })
+                @Html.ActionLink("Details", "Details", new { id = item.MaPhieuThuTien })
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaPhieuThuTien })
+            </td>
+        </tr>
+    }
+
+</table>

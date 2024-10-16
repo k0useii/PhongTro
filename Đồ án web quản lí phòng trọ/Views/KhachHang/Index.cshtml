@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Quản lý khách hàng";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/CSS/quanly.css" rel="stylesheet" />
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+
+    h2 {
+        text-align: center;
+        padding: 40px;
+    }
+
+    table {
+        width: 80%;
+        margin: auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<h2>Quản lí khách hàng</h2>
+<a href="~/KhachHang/Create"> <input type="button" value="Đăng ký khách hàng mới" id="button-create" /></a>
+<table class="table">
+    <tr>
+        <th>Mã Khách Hàng</th>
+        <th>Tên Khách Hàng</th>
+        <th>Địa Chỉ</th>
+        <th>CCCD</th>
+        <th>Số Điện Thoại</th>
+        <th>Mã Tài Khoản</th>
+        <th>Hành Động</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaKhachHang</td>
+            <td>@item.TenKhachHang</td>
+            <td>@item.DiaChi</td>
+            <td>@item.CCCD</td>
+            <td>@item.SDT</td>
+            <td>@item.MaTaiKhoan</td>
+            <td>
+                <a href="~/KhachHang/Edit/@item.MaKhachHang" id="button-edit">Sửa</a>
+                <a href="~/KhachHang/Details/@item.MaKhachHang" id="button-details">Chi tiết</a>
+                <a href="~/KhachHang/Delete/@item.MaKhachHang" id="button-delete">Xóa</a>
+            </td>
+        </tr>
+    }
+
+</table>

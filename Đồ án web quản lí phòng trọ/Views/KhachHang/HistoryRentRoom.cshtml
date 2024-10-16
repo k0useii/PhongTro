@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThueTraPhong>
+
+@{
+    Layout = "~/Views/Shared/KhachHangLayout.cshtml";
+}
+
+<h2>Lịch sử thuê phòng</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên Khách Hàng</th>
+            <th>Mã Phòng</th>
+            <th>Ngày Thuê</th>
+            <th>Ngày Trả</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var phieuThue in Model)
+        {
+            <tr>
+                <td>@phieuThue.TenKhachHang</td>
+                <td>@phieuThue.MaPhong</td>
+                <td>@phieuThue.NgayThue</td>
+                <td>@phieuThue.NgayTra</td>
+            </tr>
+        }
+    </tbody>
+</table>

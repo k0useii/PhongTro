@@ -1,0 +1,156 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThuTien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    #tongdoanhthu {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #result-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+        #result-container form {
+            display: flex;
+            align-items: center;
+        }
+
+        #result-container label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        #result-container input[type="number"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #result-container input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+    .table-container {
+        max-width: 90%;
+        margin: auto;
+    }
+
+        .table-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-container th, .table-container td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .table-container th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .table-container tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+</style>
+<link href="~/Content/CSS/quanly.css?v=1" rel="stylesheet" />
+<h2 style="text-align:center;">Danh sách phiếu thu tiền</h2>
+<div id="result-container">
+    @using (Html.BeginForm("FilterAndCalculateByThang", "ThongKe", FormMethod.Get))
+    {
+        <label>Nhập Tháng:</label>
+        <input type="number" name="thang" />
+        <input type="submit" value="Lọc và Tính Tổng" />
+    }
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TongTien)</th>
+            <th>@Html.DisplayNameFor(model => model.Thang)</th>
+            <th>@Html.DisplayNameFor(model => model.TienDien)</th>
+            <th>@Html.DisplayNameFor(model => model.TienNuoc)</th>
+            <th>@Html.DisplayNameFor(model => model.TienMang)</th>
+            <th>@Html.DisplayNameFor(model => model.TrangThai)</th>
+            <th>@Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)</th>
+            <th>@Html.DisplayNameFor(model => model.PhieuThueTraPhong.CCCD)</th>
+            <th>@Html.DisplayNameFor(model => model.QuanLy.TenQuanLy)</th>
+            <th>@Html.DisplayName("Hành động")</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td data-tongtien="@item.TongTien" data-trangthai="@item.TrangThai">
+                    @Html.DisplayFor(modelItem => item.TongTien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TienDien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TienNuoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TienMang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrangThai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KhachHang.TenKhachHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhieuThueTraPhong.CCCD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuanLy.TenQuanLy)
+                </td>
+                <td>
+                    <a href="~/PhieuThuTien/Edit/@item.MaPhieuThuTien" id="button-edit" style="text-decoration:none"> Sửa</a>
+                    <a href="~/PhieuThuTien/Details/@item.MaPhieuThuTien" id="button-details" style="text-decoration:none"> Chi tiết</a>
+                    <a href="~/PhieuThuTien/Delete/@item.MaPhieuThuTien" id="button-delete" style="text-decoration:none"> Xóa</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p id="tongdoanhthu">Tổng doanh thu cả năm (Đã thanh toán): <span id="tong-doanh-thu-ca-nam"></span></p>
+    </div>
+    <script>
+        // Tính tổng doanh thu cả năm của tất cả các PhieuThuTien có TrangThai là "Đã thanh toán"
+        document.addEventListener("DOMContentLoaded", function () {
+            var tongDoanhThuCaNam = 0;
+            var tongDoanhThuCaNamElement = document.getElementById("tong-doanh-thu-ca-nam");
+            var tongTienElements = document.querySelectorAll("td[data-tongtien][data-trangthai='Đã thanh toán']");
+
+            tongTienElements.forEach(function (element) {
+                tongDoanhThuCaNam += parseInt(element.getAttribute("data-tongtien"));
+            });
+
+            tongDoanhThuCaNamElement.textContent = tongDoanhThuCaNam;
+        });
+    </script>

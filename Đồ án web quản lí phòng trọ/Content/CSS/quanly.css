@@ -1,0 +1,76 @@
+﻿body {
+}
+.button-quanly-phieuttp {
+    background-color: gray;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 12px;
+    
+}
+.button-quanly-phieuttp:hover{
+    color:red;
+}
+#button-edit {
+    background-color: #04B4AE;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#button-edit:hover {
+    color: red;
+}
+#button-details {
+    background-color: #0040FF;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+    #button-edit:hover {
+        color: red;
+    }
+#button-delete {
+    background-color: red;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+    #button-edit:hover {
+        color: red;
+    }
+#button-create {
+    background-color: gray;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#button-create:hover {
+    color: red;
+}

@@ -1,0 +1,115 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.PhongTro
+
+@{
+    ViewBag.Title = "Details1";
+    Layout = "~/Views/Shared/KhachHangLayout.cshtml";
+}
+<link href="~/Content/CSS/button-back.css" rel="stylesheet" />
+<link href="~/Content/CSS/quanly.css" rel="stylesheet" />
+<link href="~/Content/CSS/admin.css" rel="stylesheet" />
+<link href="~/Content/CSS/details.css?v=2" rel="stylesheet" />
+<script src="~/Scripts/slideshow.js"></script>
+<h2 id="header-admin-layout">Chi tiết phòng trọ</h2>
+<style>
+    #detail-des {
+        width: 350px;
+        padding: 10px;
+        float: right;
+       
+    }
+
+    .button-create-phieuttp {
+        background-color: orangered;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        padding: 5px 5px;
+        border-radius: 12px;
+    }
+
+        .button-create-phieuttp:hover {
+            color: black;
+        }
+</style>
+<div>
+    <hr />
+    <dl >
+        <div class="detail-div-left">
+            <dd id="detail-image">
+                <img src="@Url.Content(Model.Hinh)" width="500" height="400" />
+            </dd>
+        </div>
+        <div id="detail-des">
+            <dt>
+                Mã phòng:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaPhong)
+            </dd>
+
+            <dt>
+                Giá thuê:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiaThue) <span>VND</span>
+            </dd>
+
+            <dt>
+                Diện tích:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DienTich)<span>m2</span>
+            </dd>
+
+            <dt>
+                Mô tả vật chất:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VatChat)
+            </dd>
+
+            <dt>
+                Trạng thái:
+            </dt>
+            <dd id="trang-thai">
+                @Html.DisplayFor(model => model.TrangThai)
+            </dd>
+
+            <p style="margin-left:auto; margin-right:auto;width:fit-content;margin-top:10px;">
+                <a href="~/PhongTro/Index" id="button-back"> Trở về </a>
+
+            </p>
+        </div>
+    </dl>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var trangThaiElement = document.querySelector("#trang-thai");
+        var trangThaiValue = trangThaiElement.textContent.trim();
+
+        if (trangThaiValue === "Trống") {
+            trangThaiElement.style.backgroundColor = "#55C2FF";
+        } else if (trangThaiValue === "Bảo trì") {
+            trangThaiElement.style.backgroundColor = "yellow";
+        } else if (trangThaiValue === "Đã thuê") {
+            trangThaiElement.style.backgroundColor = "red";
+        }
+
+        trangThaiElement.style.width = "fit-content";
+        trangThaiElement.style.borderRadius = "12px";
+        trangThaiElement.style.padding = "5px 8px";
+        trangThaiElement.style.color = "white";
+    });
+</script>
+
+
+
+
+

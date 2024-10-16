@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThuTien>
+
+@{
+    ViewBag.Title = "IndexCus";
+    Layout = "~/Views/Shared/KhachHangLayout.cshtml";
+}
+
+<h2>IndexCus</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaPhieuThuTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TienDien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TienNuoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TienMang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaPhieuTTP)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaPhieuThuTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TienDien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TienNuoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TienMang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaPhieuTTP)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "DetailsCus", new { id = item.MaPhieuThuTien })
+            </td>
+        </tr>
+    }
+
+</table>

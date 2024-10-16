@@ -1,0 +1,142 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThuTien
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/CSS/quanly.css" rel="stylesheet" />
+<style>
+    /* Add your custom styles here */
+    .details-container {
+        background-color: #f7f7f7;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 20px;
+    }
+
+        .details-container h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+    .dl-horizontal dt {
+        width: 150px;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 170px;
+        margin-bottom: 10px;
+    }
+
+    .dl-horizontal::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .action-buttons {
+        margin-top: 20px;
+    }
+
+        .action-buttons a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+            .action-buttons a:hover {
+                background-color: #0056b3;
+            }
+</style>
+
+<h2>Details</h2>
+
+<div class="details-container">
+    <h4>PhieuThuTien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <!-- ... your existing code ... -->
+        <dt>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienDien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienDien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienNuoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienNuoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienMang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienMang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.TenKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhieuThueTraPhong.CCCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhieuThueTraPhong.CCCD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuanLy.TenQuanLy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuanLy.TenQuanLy)
+        </dd>
+    </dl>
+</div>
+
+<div class="action-buttons">
+    <a href="~/PhieuThuTien/Edit/@Model.MaPhieuThuTien" class="button-edit">Chỉnh sửa</a>
+    <a href="~/PhieuThuTien/TongDoanhThu" class="button-back">Trở về</a>
+</div>

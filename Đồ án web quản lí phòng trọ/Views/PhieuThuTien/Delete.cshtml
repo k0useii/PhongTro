@@ -1,0 +1,97 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThuTien
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/CSS/button-back.css" rel="stylesheet" />
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PhieuThuTien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienDien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienDien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienNuoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienNuoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienMang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienMang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.TenKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhieuThueTraPhong.CCCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhieuThueTraPhong.CCCD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuanLy.TenQuanLy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuanLy.TenQuanLy)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a href="~/PhieuThuTien/TongDoanhThu" id="button-back"> Trở về </a>
+        </div>
+    }
+</div>

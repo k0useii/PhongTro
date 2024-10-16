@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThuTien>
+
+
+<p>
+    @Html.ActionLink("Trở về", "TongDoanhThu","PhieuThuTien")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <p>
+                Doanh thu tháng @ViewBag.Thang
+            </p>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TienDien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TienNuoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TienMang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhieuThueTraPhong.CCCD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuanLy.TenQuanLy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @ViewBag.TongDoanhThu
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TongTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TienDien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TienNuoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TienMang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrangThai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KhachHang.TenKhachHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhieuThueTraPhong.CCCD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuanLy.TenQuanLy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaPhieuThuTien }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaPhieuThuTien }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaPhieuThuTien })
+        </td>
+    </tr>
+}
+
+</table>

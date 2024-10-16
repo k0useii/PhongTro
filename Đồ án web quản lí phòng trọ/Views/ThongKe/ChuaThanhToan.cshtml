@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThuTien>
+@{
+    ViewBag.Title = "ChuaThanhToan";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/CSS/quanly.css?v=1" rel="stylesheet" />
+    <style>
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Chưa Thanh Toán</h2>
+    <table class="table">
+        <tr>
+            <th>Tổng Tiền</th>
+            <th>Tháng</th>
+            <th>Tiền Điện</th>
+            <th>Tiền Nước</th>
+            <th>Tiền Mạng</th>
+            <th>Trạng Thái</th>
+            <th>Tên Khách Hàng</th>
+            <th>CCCD</th>
+            <th>Tên Quản Lý</th>
+            <th>Hành Động</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TongTien</td>
+                <td>@item.Thang</td>
+                <td>@item.TienDien</td>
+                <td>@item.TienNuoc</td>
+                <td>@item.TienMang</td>
+                <td>@item.TrangThai</td>
+                <td>@item.KhachHang.TenKhachHang</td>
+                <td>@item.PhieuThueTraPhong.CCCD</td>
+                <td>@item.QuanLy.TenQuanLy</td>
+                <td>
+                    <a href="~/PhieuThuTien/Edit/@item.MaPhieuThuTien" id="button-edit">Sửa</a>
+                    <a href="~/PhieuThuTien/Details/@item.MaPhieuThuTien" id="button-details">Chi tiết</a>
+                    <a href="~/PhieuThuTien/Delete/@item.MaPhieuThuTien" id="button-delete">Xóa</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

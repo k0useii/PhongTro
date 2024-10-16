@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLyNhaTroModelStoreContainer" CdmEntityContainer="QuanLyNhaTroEntities1">
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="QuanLyNhaTroModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuThueTraPhongs">
+      <EntityTypeMapping TypeName="QuanLyNhaTroModel.PhieuThueTraPhong">
+        <MappingFragment StoreEntitySet="PhieuThueTraPhong">
+          <ScalarProperty Name="MaPhieuTTP" ColumnName="MaPhieuTTP" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="NgayThue" ColumnName="NgayThue" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
+          <ScalarProperty Name="MaQuanLy" ColumnName="MaQuanLy" />
+          <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuThuTiens">
+      <EntityTypeMapping TypeName="QuanLyNhaTroModel.PhieuThuTien">
+        <MappingFragment StoreEntitySet="PhieuThuTien">
+          <ScalarProperty Name="MaPhieuThuTien" ColumnName="MaPhieuThuTien" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="HanThanhToan" ColumnName="HanThanhToan" />
+          <ScalarProperty Name="ChiTietHoaDon" ColumnName="ChiTietHoaDon" />
+          <ScalarProperty Name="MaQuanLy" ColumnName="MaQuanLy" />
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="MaPhieuTTP" ColumnName="MaPhieuTTP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhongTroes">
+      <EntityTypeMapping TypeName="QuanLyNhaTroModel.PhongTro">
+        <MappingFragment StoreEntitySet="PhongTro">
+          <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+          <ScalarProperty Name="GiaThue" ColumnName="GiaThue" />
+          <ScalarProperty Name="DienTich" ColumnName="DienTich" />
+          <ScalarProperty Name="VatChat" ColumnName="VatChat" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="Hinh" ColumnName="Hinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuanLies">
+      <EntityTypeMapping TypeName="QuanLyNhaTroModel.QuanLy">
+        <MappingFragment StoreEntitySet="QuanLy">
+          <ScalarProperty Name="MaQuanLy" ColumnName="MaQuanLy" />
+          <ScalarProperty Name="TenQuanLy" ColumnName="TenQuanLy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoans">
+      <EntityTypeMapping TypeName="QuanLyNhaTroModel.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,91 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.PhongTro
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/CSS/button-back.css" rel="stylesheet" />
+<link href="~/Content/CSS/quanly.css" rel="stylesheet" />
+<link href="~/Content/CSS/admin.css" rel="stylesheet" />
+<link href="~/Content/CSS/details.css?v=2" rel="stylesheet" />
+<script src="~/Scripts/slideshow.js"></script>
+<h2 id="header-admin-layout">Chi tiết phòng trọ</h2>
+<style>
+    #detail-des{
+        width:350px;
+        padding:10px;
+        float:right;
+       
+    }
+    .button-create-phieuttp {
+        background-color: orangered;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        padding: 5px 5px;
+        border-radius: 12px;
+    }
+    .button-create-phieuttp:hover{
+        color:black;
+    }
+</style>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="detail-div-left">
+            <dd id="detail-image">
+                <img src="@Url.Content(Model.Hinh)" width="500" height="400" />
+            </dd>
+        </div>
+        <div id="detail-des">
+            <dt>
+                Mã phòng:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaPhong)
+            </dd>
+
+            <dt>
+                Giá thuê:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiaThue) <span>VND</span>
+            </dd>
+
+            <dt>
+                Diện tích:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DienTich)<span>m2</span>
+            </dd>
+
+            <dt>
+                Mô tả vật chất:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VatChat)
+            </dd>
+
+            <dt>
+                Trạng thái:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TrangThai)
+            </dd>
+            <p style="margin-left:auto; margin-right:auto;width:fit-content;margin-top:10px;">
+                <a href="~/PhongTro/Edit/@Model.MaPhong" id="button-edit"> Sửa</a>
+                <a href="~/PhongTro/Index2" id="button-back"> Trở về </a>
+                <a href="~/PhieuThueTraPhong/Create/@Model.MaPhong" class="button-create-phieuttp" style="text-decoration:none">Lập phiếu thuê phòng</a>
+            </p>
+        </div>
+    </dl>
+</div>
+

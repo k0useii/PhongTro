@@ -1,0 +1,283 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThueTraPhong
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/scrip2.js?v=1" type="text/javascript"></script>
+<style>
+    #button-back {
+        background-color: gray;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        padding: 5px;
+        border-radius: 12px;
+    }
+
+    #button-create {
+        background-color: gray;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 24px;
+        padding: 5px;
+        border-radius: 12px;
+        margin-left: 130px;
+    }
+
+    #ThongTinPhong {
+        float: right;
+        margin-right: 200px;
+    }
+
+    .brForm {
+        border: 1px solid #ccc;
+        width: 250px;
+        border: 0px solid black;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+
+    /* Style for the title container */
+    .title-container {
+        background-color: #f0f0f0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Style for the centered title */
+    .centered-title {
+        font-family: 'Arial', sans-serif;
+        font-size: 28px;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0;
+    }
+</style>
+<div class="title-container">
+    <h2 class="centered-title">Tạo phiếu thuê trả phòng</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div id="ThongTinPhong" style="display:none;">
+        @Html.Partial("_PhongDetailsPartial", new Đồ_án_web_quản_lí_phòng_trọ.Models.PhongTro())
+    </div>
+    <div class="brForm" style="background-color:#D9D9D9; height:auto;width:720px;padding-bottom:15px">
+
+        <div class="form-horizontal" style="padding:30px; margin-top:30px;">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CCCD, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CCCD, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CCCD, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SDT, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NgayThue, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NgayThue, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    @Html.ValidationMessageFor(model => model.NgayThue, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TenKhachHang, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("TenKhachHang", ViewBag.DanhSachTenKH as SelectList, "Chọn tên khách hàng", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TenKhachHang, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NgayTra, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NgayTra, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    @Html.ValidationMessageFor(model => model.NgayTra, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MaQuanLy, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MaQuanLy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MaQuanLy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MaPhong, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("MaPhong", ViewBag.DanhSachMaPhong as SelectList, "Chọn phòng", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Hiển thị thông tin phòng khi chọn mã phòng -->
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" id="button-create" />
+                </div>
+            </div>
+
+        </div>
+        <div style="margin-left:100px;">
+            <a href="~/PhieuThueTraPhong/Index" id="button-back"> Trở về </a>
+            <br />
+        </div>
+
+
+
+    </div>
+}
+
+
+<script>
+    // Sử dụng JavaScript AJAX để lấy thông tin phòng từ mã phòng đã chọn
+    $(document).ready(function () {
+        $("#MaPhong").change(function () {
+            var selectedMaPhong = $(this).val();
+            if (selectedMaPhong !== "") {
+                // Chuyển đổi giá trị từ chuỗi sang số nguyên
+                selectedMaPhong = parseInt(selectedMaPhong);
+                $.ajax({
+                    type: "GET",
+                    url: "/PhieuThueTraPhong/GetThongTinPhong",
+                    data: { maPhong: selectedMaPhong },
+                    success: function (data) {
+                        // Hiển thị thông tin phòng đã chọn
+                        $("#ThongTinPhong").show();
+                        $("#ThongTinPhong").html(data);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            } else {
+                // Ẩn thông tin phòng nếu không có phòng nào được chọn
+                $("#ThongTinPhong").hide();
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+<script>
+    // Sử dụng JavaScript AJAX để lấy danh sách mã phòng từ cơ sở dữ liệu và xây dựng DropDownList
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "/PhieuThueTraPhong/GetDanhSachMaPhong",
+            dataType: "json",
+            success: function (data) {
+                var maPhongDropDownList = $("#MaPhong");
+                maPhongDropDownList.empty(); // Xóa tất cả các option hiện có trước khi thêm mới
+
+                // Thêm lựa chọn "Chọn phòng" vào DropDownList
+                maPhongDropDownList.append($('<option/>', {
+                    value: "",
+                    text: "Chọn phòng"
+                }));
+
+                $.each(data, function (index, item) {
+                    maPhongDropDownList.append($('<option/>', {
+                        value: item,
+                        text: item
+                    }));
+                });
+
+                // Gắn sự kiện onChange để hiển thị thông tin phòng đã chọn kế bên
+                maPhongDropDownList.change(function () {
+                    var selectedOption = $(this).find(":selected");
+                    if (selectedOption.val() !== "") {
+                        // Hiển thị thông tin phòng
+                        $("#ThongTinPhong").show();
+                        $("#MaPhongDisplay").text(selectedOption.val());
+                        $("#TenPhongDisplay").text(selectedOption.text());
+                        // Các thông tin phòng khác cũng có thể được hiển thị ở đây (nếu có)
+                    } else {
+                        // Ẩn thông tin phòng nếu không có phòng nào được chọn
+                        $("#ThongTinPhong").hide();
+                    }
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#TenKhachHang").change(function () {
+            var selectedTenKhachHang = $(this).val();
+            if (selectedTenKhachHang !== "") {
+                $.ajax({
+                    type: "GET",
+                    url: "/PhieuThueTraPhong/GetThongTinKhachHang",
+                    data: { tenKhachHang: selectedTenKhachHang },
+                    success: function (data) {
+                        // Kiểm tra nếu có dữ liệu trả về từ máy chủ
+                        if (data) {
+                            // Điền thông tin vào các ô tương ứng
+                            $("#DiaChi").val(data.DiaChi);
+                            $("#CCCD").val(data.CCCD);
+                            $("#SDT").val(data.SDT);
+                            $("#MaTaiKhoan").val(data.MaTaiKhoan);
+                            //Thêm các ô khác nếu cần
+                        } else {
+                            // Xử lý nếu không có dữ liệu trả về
+                            console.log("Không tìm thấy thông tin khách hàng");
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            } else {
+                // Xử lý nếu tên khách hàng không được chọn
+                console.log("Vui lòng chọn tên khách hàng");
+            }
+        });
+    });
+</script>

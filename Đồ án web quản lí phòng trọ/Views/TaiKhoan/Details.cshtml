@@ -1,0 +1,76 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .details-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #f8f8f8;
+    }
+
+    .dl-horizontal dt {
+        width: 150px;
+        font-weight: bold;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 170px;
+        margin-bottom: 15px;
+    }
+
+    .action-links a {
+        margin-right: 10px;
+        color: #428bca;
+        text-decoration: none;
+    }
+
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<h2>Details</h2>
+
+<div class="details-container">
+    <h4>TaiKhoan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTaiKhoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaTaiKhoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+    </dl>
+</div>
+
+<p class="action-links">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaTaiKhoan }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,34 @@
+﻿#neubar {
+    background: black;
+    box-shadow: 4px 6px 12px rgba(0,0,0,0.4)
+}
+
+.nav-item .active {
+    border-radius: 6px;
+    background: white;
+    box-shadow: 4px 4px 8px black, -4px -4px 8px black;
+}
+
+#neubar .dropdown-menu a:hover {
+    color: black;
+}
+
+#neubar .nav-item {
+    margin: auto 4px;
+}
+
+#neubar a {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#neubar .dropdown-menu {
+    background: #545454;
+}
+
+a.navbar-brand {
+    color: #454545;
+}
+.navbar{
+    min-height: 70px;
+}

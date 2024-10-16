@@ -1,0 +1,227 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThuTien
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/CSS/button-back.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<h2>Thêm Phiếu Thu Tiền </h2>
+
+@using (Html.BeginForm("Create", "PhieuThuTien", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaQuanLy, "MaQuanLy", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <!-- Sử dụng DropDownListFor để hiển thị DropDownList và liên kết với Model -->
+                @Html.DropDownListFor(model => model.MaQuanLy, ViewBag.MaQuanLyList as SelectList, "Chọn mã quản lý", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaQuanLy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaKhachHang, "MaKhachHang", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaKhachHang, ViewBag.MaKhachHangList as SelectList, "Chọn mã khách hàng", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaKhachHang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Mã phiếu thuê trả phòng:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaPhieuTTP, ViewBag.MaPhieuTTPList as SelectList, "Chọn mã phiếu thuê trả phòng", new { @class = "form-control", id = "MaPhieuTTP" })
+                @Html.ValidationMessageFor(model => model.MaPhieuTTP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Display GiaPhong based on selected MaPhieuTTP -->
+        <div class="form-group">
+            @Html.Label("Giá phòng:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" id="GiaPhong" class="form-control" readonly />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Thang, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Thang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Thang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Số kwh điện sử dụng:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" id="soDienSuDung" class="form-control" oninput="tinhTienDien()" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TienDien, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TienDien, new { @class = "form-control", id = "TienDien", type = "number", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.TienDien, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*Tiền nước *@
+        <div class="form-group">
+            @Html.Label("Số khối nước sử dụng:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" id="soKhoiNuocSuDung" class="form-control" oninput="tinhTienNuoc()" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TienNuoc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TienNuoc, new { @class = "form-control", id = "TienNuoc", type = "number", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.TienNuoc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TienMang, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TienMang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TienMang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Tổng tiền:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" id="TongTien" name="TongTien" class="form-control" readonly />
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.MaPhieuTTP, new { id = "MaPhieuTTPHidden" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    var trangThaiList = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "Đã thanh toán", Text = "Đã thanh toán" },
+                new SelectListItem { Value = "Chưa thanh toán", Text = "Chưa thanh toán" }
+            };
+                }
+                @Html.DropDownListFor(model => model.TrangThai, trangThaiList, "Chọn trạng thái", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+}
+
+<div>
+    <a href="~/PhongTro/Index2" id="button-back"> Trở về </a>
+</div>
+
+
+
+<script>
+    function tinhTienDien() {
+        var soDienSuDung = parseFloat(document.getElementById("soDienSuDung").value);
+        if (!isNaN(soDienSuDung)) {
+            var tienDien = soDienSuDung * 3000;
+            document.getElementById("TienDien").value = tienDien; // Cập nhật giá trị TienDien vào ô nhập liệu
+        } else {
+            document.getElementById("TienDien").value = ""; // Xóa giá trị TienDien nếu người dùng nhập không đúng số
+        }
+    }
+</script>
+
+
+<script>
+    function tinhTienNuoc() {
+        var soKhoiNuocSuDung = parseFloat(document.getElementById("soKhoiNuocSuDung").value);
+        if (!isNaN(soKhoiNuocSuDung)) {
+            var tienNuoc = soKhoiNuocSuDung * 6500;
+            document.getElementById("TienNuoc").value = tienNuoc; // Cập nhật giá trị TienDien vào ô nhập liệu
+        } else {
+            document.getElementById("TienNuoc").value = ""; // Xóa giá trị TienDien nếu người dùng nhập không đúng số
+        }
+    }
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#MaPhieuTTP").on("change", function () {
+            var selectedMaPhieuTTP = $(this).val();
+            $.ajax({
+                url: "/PhieuThuTien/GetGiaPhong", // Replace with the correct URL for your action method
+                type: "GET",
+                data: { maPhieuTTP: selectedMaPhieuTTP },
+                success: function (data) {
+                    $("#GiaPhong").val(data);
+                },
+                error: function () {
+                    $("#GiaPhong").val("Không tìm thấy giá phòng");
+                }
+            });
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        // Function to calculate the total amount
+        function calculateTotal() {
+            var giaPhong = parseInt($("#GiaPhong").val());
+            var tienDien = parseInt($("#TienDien").val());
+            var tienNuoc = parseInt($("#TienNuoc").val());
+            var tienMang = parseInt($("#TienMang").val());
+
+            var total = giaPhong + tienDien + tienNuoc + tienMang;
+            $("#TongTien").val(total);
+        }
+
+        // Listen for changes in the input fields and calculate the total amount
+        $("#TienDien, #TienNuoc, #TienMang").on("change", function () {
+            calculateTotal();
+        });
+
+        // Handle MaPhieuTTP change event to load the corresponding GiaPhong using AJAX
+        $("#MaPhieuTTP").on("change", function () {
+            var maPhieuTTP = $(this).val();
+            $("#MaPhieuTTPHidden").val(maPhieuTTP); // Store the selected MaPhieuTTP in the hidden field
+
+            // Send AJAX request to get the GiaPhong based on MaPhieuTTP
+            $.ajax({
+                type: "GET",
+                url: "/PhieuThuTien/GetGiaPhongByMaPhieuTTP",
+                data: { maPhieuTTP: maPhieuTTP },
+                success: function (result) {
+                    $("#GiaPhong").val(result); // Set the retrieved GiaPhong value to the input field
+                    calculateTotal(); // Calculate the total amount after getting GiaPhong
+                },
+
+            });
+        });
+    });
+</script>
+
+
+
+
